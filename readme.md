@@ -1,9 +1,9 @@
-##1.如何开始
+## 1.如何开始
 * 1 创建springboot项目的方式很多种，最简单的依然是直接从新建项目 选择spring-initionzer开始。
 * 2 新建一个controller，搞定一个requestMapping("/")就可以直接运行application类了
 * 3 备注:其实controller类不是必要的，直接在application类增加对应的restController和requestMapping注解 也是可以的
 
-##2.全局配置文件
+## 2.全局配置文件
 application.properties
 
 
