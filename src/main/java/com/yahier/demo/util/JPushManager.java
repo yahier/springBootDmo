@@ -38,10 +38,12 @@ public class JPushManager {
     }
 
     private static PushPayload buildPushObject_android_tag_alertWithTitle() {
+        final String notShowClientNotification = "";//客户端收到推送，不会在通知栏显示
+        final String alertShowClientNotification = "alert";//在客户端通知栏显示
         return PushPayload.newBuilder()
                 .setPlatform(android())
                 .setAudience(Audience.tag("tag1"))
-                .setNotification(Notification.android(ALERT, "yahier服务器的极光推送来了", null))
+                .setNotification(Notification.android(notShowClientNotification, "yahier服务器的极光推送来了", null))
                 .build();
     }
 
