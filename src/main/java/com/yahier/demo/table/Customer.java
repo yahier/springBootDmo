@@ -15,8 +15,9 @@ import java.util.Date;
 @NamedQuery(name = "Customer.findFirst", query = "select c from Customer c where c.firstName=?1")
 //@NamedQuery(name = "Customer.findX", query = "select c from Customer c where c.firstName=?1")
 public class Customer {
+    //将策略换成GenerationType.IDENTITY 之后，id才开始自增长，而用GenerationType.AUTO不行
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)  //strategy = GenerationType.AUTO
     private Long id;
 
     @JsonIgnore  //此注解表明，对外输出对象的json数据时，此字段将忽略(移除)

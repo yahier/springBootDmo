@@ -12,7 +12,7 @@ import java.util.List;
 public interface CustomerRepository extends JpaRepository<Customer, Long> {
 
     /**
-     * why？这个查询语句 是在哪里实现的呢
+     * 名称约定
      */
     List<Customer> findByLastName(String lastName);
 

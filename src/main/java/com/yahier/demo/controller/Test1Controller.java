@@ -25,8 +25,7 @@ public class Test1Controller {
     @Autowired
     private TestAsync testAsync;
 
-    @Autowired
-    private CustomerRepository repository;
+
 
     @RequestMapping("/")
     String index() {
@@ -55,16 +54,8 @@ public class Test1Controller {
         return "hello. spring boot from Test1Controller userName:" + userName;
     }
 
-    @RequestMapping(value = "/list", produces = {"application/json;charset=UTF-8"})
-    public List<Customer> list() {
-        long count = repository.count();
-        System.out.println("count:" + count);
-        List<Customer> list = repository.findAll();
-        if (count > 0) {
-            System.out.println("0号Customer:" + list.get(0).toString());
-        }
-        return list;
-    }
+
+
 
     @RequestMapping("/push")
     public String push(){
