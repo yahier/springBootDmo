@@ -1,4 +1,4 @@
-## 1.如何开始
+## 1.springboot的开始
 * 1 创建springboot项目的方式很多种，最简单的依然是直接从新建项目 选择spring-initionzer开始。
 * 2 新建一个controller，搞定一个requestMapping("/")就可以直接运行application类了
 * 3 备注:其实controller类不是必要的，直接在application类增加对应的restController和requestMapping注解 也是可以的
@@ -32,3 +32,7 @@ application.properties
 ## 7.怎么导入已经存在的sql文件 测试Ok
 * 1 将sql文件放置在resources目录下
 * 2 新建BatchTaskDataSourceInitializer类，主要是为了初始化DataSourceInitializer
+
+
+## 8.增加极光推送测试
+* 1 测试了tag样式的推送，Android手机成功接收到了
