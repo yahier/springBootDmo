@@ -32,8 +32,6 @@ class GrammarTest {
         //定义map 默认实现是LinkedHashMap
         def colors = [red: '#FF0000', green: '#00FF00', blue: '#0000FF']
         println colors['red']
-
-
     }
 
     /**
@@ -93,6 +91,22 @@ class GrammarTest {
 
     public static def testRetun2() {
         'testReturn'
+    }
+
+    //测试异常  //受检异常 也不强制捕捉啦
+    static void testException() {
+        Thread.sleep(1000)
+
+        String filePath = '/Users/yahier/Desktop/TEST.txt'
+        def file1 = new File(filePath)
+        File file2 = new File(filePath)
+
+        int a = 0
+        try {
+            int b = 10 / 0
+        } catch (e) {
+
+        }
     }
 
 }
