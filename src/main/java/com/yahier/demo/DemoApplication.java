@@ -33,13 +33,13 @@ public class DemoApplication implements CommandLineRunner {
      */
     @Bean
     public Queue createQueue() {
-        return new Queue("myqueue1");
+        return new Queue(Constant.queueName);
     }
 
     @Override
     public void run(String... args) throws Exception {
         System.out.println("application-run");
         /**向队列发送消息*/
-        rabbitTemplate.convertAndSend("myqueue1", "你好呀-rabbit");
+        rabbitTemplate.convertAndSend(Constant.queueName, "你好呀-rabbit");
     }
 }

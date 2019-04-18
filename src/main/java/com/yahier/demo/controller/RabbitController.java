@@ -1,5 +1,6 @@
 package com.yahier.demo.controller;
 
+import com.yahier.demo.Constant;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,6 +15,6 @@ public class RabbitController {
 
     @RequestMapping("send")
     public void send() {
-        rabbitTemplate.convertAndSend("my_queue", "你好，我是yahier");
+        rabbitTemplate.convertAndSend(Constant.queueName, "你好，我是yahier");
     }
 }
