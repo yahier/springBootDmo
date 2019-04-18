@@ -14,8 +14,6 @@ import org.springframework.web.bind.annotation.RestController;
 @SpringBootApplication
 public class DemoApplication implements CommandLineRunner {
 
-    @Autowired
-    RabbitTemplate rabbitTemplate;
 
     public static void main(String[] args) {
 
@@ -31,15 +29,13 @@ public class DemoApplication implements CommandLineRunner {
     /**
      * 建议新队列，也可以在网站rabbitMQ网站上建立。
      */
-    @Bean
-    public Queue createQueue() {
-        return new Queue(Constant.queueName);
-    }
+//    @Bean
+//    public Queue createQueue() {
+//        return new Queue(Constant.queueName);
+//    }
 
     @Override
     public void run(String... args) throws Exception {
         System.out.println("application-run");
-        /**向队列发送消息*/
-        rabbitTemplate.convertAndSend(Constant.queueName, "你好呀-rabbit");
     }
 }
