@@ -12,7 +12,8 @@ public class RabbitController {
     @Autowired
     RabbitTemplate rabbitTemplate;
 
+    @RequestMapping("send")
     public void send() {
-        rabbitTemplate.convertAndSend("my-queue", "你好，我是yahier");
+        rabbitTemplate.convertAndSend("my_queue", "你好，我是yahier");
     }
 }

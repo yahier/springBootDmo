@@ -36,3 +36,5 @@ application.properties
 
 ## 8.增加极光推送测试
 * 1 测试了tag样式的推送，Android手机成功接收到了
+
+## 9.增加rabbitMQ测试

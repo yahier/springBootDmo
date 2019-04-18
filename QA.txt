@@ -1,0 +1,6 @@
+Q1:项目从github时导入无法运行，
+A1:需要配置sdk(去到application类，点击event Log，查看提示)
+
+Q2:当提示没有配置groovy时，导致无法运行
+A2:需要file-project strcture,到达项目的dependencies,点击下面的+号按钮，选择library,将groovy加进去。
+

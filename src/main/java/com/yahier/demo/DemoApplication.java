@@ -12,13 +12,15 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @SpringBootApplication
-public class DemoApplication {
+public class DemoApplication implements CommandLineRunner {
 
     @Autowired
     RabbitTemplate rabbitTemplate;
 
     public static void main(String[] args) {
+
         SpringApplication.run(DemoApplication.class, args);
+
     }
 
     @RequestMapping("yahier")
@@ -27,22 +29,17 @@ public class DemoApplication {
     }
 
     /**
-     * 定义目的队列
-     *
-     * @return
+     * 建议新队列，也可以在网站rabbitMQ网站上建立。
      */
     @Bean
-    public Queue takeQueue() {
-        return new Queue("my_queue");
+    public Queue createQueue() {
+        return new Queue("myqueue1");
     }
 
-    //此方法需要当前类实现CommandLineRunner接口，然而直接运行出错
-//    @Override
-//    public void run(String... args) throws Exception {
-//        System.out.println("application-run");
-//        /**
-//         * 向队列发送消息
-//         */
-//        rabbitTemplate.convertAndSend("my_queue", "你好呀-rabbit");
-//    }
+    @Override
+    public void run(String... args) throws Exception {
+        System.out.println("application-run");
+        /**向队列发送消息*/
+        rabbitTemplate.convertAndSend("myqueue1", "你好呀-rabbit");
+    }
 }
