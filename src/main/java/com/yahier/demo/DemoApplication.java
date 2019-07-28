@@ -1,5 +1,6 @@
 package com.yahier.demo;
 
+import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.amqp.core.Queue;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,9 +10,11 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+//import org.mybatis.spring.annotation.MapperScan;
 
 @RestController
 @SpringBootApplication
+@MapperScan(value = {"com.yahier.demo.mapper"})
 public class DemoApplication implements CommandLineRunner {
 
 

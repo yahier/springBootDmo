@@ -1,5 +1,6 @@
 package com.yahier.demo.controller;
 
+import com.yahier.demo.mapper.CustomerMapper;
 import com.yahier.demo.respository.CustomerRepository;
 import com.yahier.demo.table.Customer;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,6 +17,9 @@ public class CustomerController {
     @Autowired
     private CustomerRepository repository;
 
+    @Autowired
+    CustomerMapper customerMapper;
+
     @RequestMapping(value = "/list", produces = {"application/json;charset=UTF-8"})
     public List<Customer> list() {
         long count = repository.count();
@@ -24,6 +28,13 @@ public class CustomerController {
         if (count > 0) {
             System.out.println("0号Customer:" + list.get(0).toString());
         }
+        return list;
+    }
+
+    @RequestMapping(value = "/listByMybatis", produces = {"application/json;charset=UTF-8"})
+    public List<Customer> listByMybatis() {
+        List<Customer> list = customerMapper.findAll();
+        //System.out.println("count:" + count);
         return list;
     }
 
