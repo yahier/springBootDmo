@@ -1,7 +1,7 @@
 package com.yahier.demo.controller;
 
 import cn.hutool.log.StaticLog;
-import com.yahier.demo.mapper.CustomerMapper;
+import com.yahier.demo.entity.CustomerBean;
 import com.yahier.demo.respository.CustomerRepository;
 import com.yahier.demo.service.CustomerService;
 import com.yahier.demo.table.Customer;
@@ -36,12 +36,22 @@ public class CustomerController {
     }
 
     @RequestMapping(value = "/listByMybatis", produces = {"application/json;charset=UTF-8"})
-    public List<Customer> listByMybatis() {
-        List<Customer> list = customerService.findAll();
-        //System.out.println("count:" + count);
+    public List listByMybatis() {
+        List list = customerService.findAll();
         return list;
     }
 
+    @RequestMapping(value = "/getOne", produces = {"application/json;charset=UTF-8"})
+    public Customer getOne(long id) {
+        Customer list = customerService.getOne(id);
+        return list;
+    }
+
+
+    @RequestMapping(value = "/getOneConverted", produces = {"application/json;charset=UTF-8"})
+    public CustomerBean getOneConverted(long id) {
+        return customerService.getOneConverted(id);
+    }
 
     /**
      * 测试时，接收到了GET请求的传参

@@ -20,7 +20,7 @@ public class Customer {
     @GeneratedValue(strategy = GenerationType.IDENTITY)  //strategy = GenerationType.AUTO
     private Long id;
 
-    @JsonIgnore  //此注解表明，对外输出对象的json数据时，此字段将忽略(移除)
+    //@JsonIgnore  //此注解表明，对外输出对象的json数据时，此字段将忽略(移除)
     private String firstName;
     private String lastName;
 
