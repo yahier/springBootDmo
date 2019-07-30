@@ -9,8 +9,8 @@ public class WebMVCConfigure extends WebMvcConfigurerAdapter {
 
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
-        registry.addInterceptor(new OneInterceptor()).addPathPatterns("/*/***");
-        registry.addInterceptor(new OneInterceptor()).addPathPatterns("/*");
+        registry.addInterceptor(new CommonInterceptor()).addPathPatterns("/*/***");
+        registry.addInterceptor(new CommonInterceptor()).addPathPatterns("/*");
         super.addInterceptors(registry);
     }
 }

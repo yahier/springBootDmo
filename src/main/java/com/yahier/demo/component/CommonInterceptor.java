@@ -1,5 +1,7 @@
 package com.yahier.demo.component;
 
+import cn.hutool.log.StaticLog;
+import com.oracle.tools.packager.Log;
 import org.springframework.lang.Nullable;
 import org.springframework.web.servlet.HandlerInterceptor;
 
@@ -8,25 +10,27 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.OutputStream;
 
-public class OneInterceptor implements HandlerInterceptor {
-    private final String TAG = "OneInterceptor";
-    
+public class CommonInterceptor implements HandlerInterceptor {
+    private final String TAG = "CommonInterceptor";
+
     /**
      * 在Controller处理之前被拦截,返回true，则继续往下运行
      */
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
-        System.out.println(TAG + " preHandle 放行");
-//        if (true) {
-//            returnErrorResponse(response);
-//            return false;
-//        }
+        String method = request.getMethod();//请求方式
+        String requestURL = request.getRequestURL().toString();//请求路径
+        String requestURI = request.getRequestURI();//资源名称部分
+        String queryString = request.getQueryString();//参数部分
+        String servletPath = request.getServletPath();
+
+        StaticLog.error("method is {},requestURL is {},queryString is {},requestURI is {},servletPath is {}", method, requestURL, queryString, requestURI, servletPath);
         return true;
     }
 
     @Override
     public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, @Nullable Exception ex) throws Exception {
-        System.out.println(TAG + "  afterCompletion");
+        //pass
     }
 
     public void returnErrorResponse(HttpServletResponse response) {
