@@ -4,7 +4,14 @@
 <mapper namespace="com.yahier.demo.mapper.CustomerMapper">
 
     <select id="findAll" resultType="Map">
-        select firstName,lastName from customer
+        select id,firstName as name from customer
+    </select>
+
+    <select id="searchList" resultType="map">
+        select id,firstName from customer
+        <if test="keyword!=null and keyword!=''">
+            where firstName like concat('%',#{keyword},'%')
+        </if>
     </select>
 
 </mapper>

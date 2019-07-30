@@ -1,12 +1,16 @@
 package com.yahier.demo.controller;
 
+import cn.hutool.log.StaticLog;
 import com.yahier.demo.mapper.CustomerMapper;
 import com.yahier.demo.respository.CustomerRepository;
+import com.yahier.demo.service.CustomerService;
 import com.yahier.demo.table.Customer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 import java.util.Random;
 
@@ -18,7 +22,7 @@ public class CustomerController {
     private CustomerRepository repository;
 
     @Autowired
-    CustomerMapper customerMapper;
+    private CustomerService customerService;
 
     @RequestMapping(value = "/list", produces = {"application/json;charset=UTF-8"})
     public List<Customer> list() {
@@ -33,8 +37,20 @@ public class CustomerController {
 
     @RequestMapping(value = "/listByMybatis", produces = {"application/json;charset=UTF-8"})
     public List<Customer> listByMybatis() {
-        List<Customer> list = customerMapper.findAll();
+        List<Customer> list = customerService.findAll();
         //System.out.println("count:" + count);
+        return list;
+    }
+
+
+    /**
+     * 测试时，接收到了GET请求的传参
+     */
+    @RequestMapping(value = "/searchList", produces = {"application/json;charset=UTF-8"})
+    public List<Customer> searchList(String keyword, HttpServletRequest request) {
+        //String keyword2 = (String) request.getAttribute("keyword");
+        StaticLog.info("info keyword = {}", keyword);
+        List<Customer> list = customerService.searchList(keyword);
         return list;
     }
 

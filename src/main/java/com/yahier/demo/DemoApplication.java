@@ -19,7 +19,6 @@ public class DemoApplication implements CommandLineRunner {
 
 
     public static void main(String[] args) {
-
         SpringApplication.run(DemoApplication.class, args);
 
     }
