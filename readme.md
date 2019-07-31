@@ -38,3 +38,10 @@ application.properties
 * 1 测试了tag样式的推送，Android手机成功接收到了
 
 ## 9.增加rabbitMQ测试
+
+
+## 10.加入了mybatis的测试
+
+
+## 11.加入了hutool工具包的测试，这个工具包含了 数据操作，各种基础数据到collections下，file,打印，json,缓存，定时任务，office文件操作，加密，数据库，网络请求...
+##  参考文档:https://www.hutool.cn/docs/#/

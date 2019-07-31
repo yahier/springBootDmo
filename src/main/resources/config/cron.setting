@@ -1,0 +1,2 @@
+com.yahier.demo.component.TestTask.executeSchedule = 0/3 * * * ? *
+com.yahier.demo.component.TestTask.executeSchedule2 = 0/5 * * * ? *

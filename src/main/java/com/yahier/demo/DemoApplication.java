@@ -1,5 +1,6 @@
 package com.yahier.demo;
 
+import cn.hutool.cron.CronUtil;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.amqp.core.Queue;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
@@ -20,7 +21,15 @@ public class DemoApplication implements CommandLineRunner {
 
     public static void main(String[] args) {
         SpringApplication.run(DemoApplication.class, args);
+    }
 
+
+    /**
+     * 启动定时任务，时间规则定义再resources/config/cron.setting文件中
+     */
+    private void startHutoolCron() {
+        CronUtil.setMatchSecond(true);//若不设置，默认不知道秒级
+        CronUtil.start();
     }
 
     @RequestMapping("yahier")
@@ -35,7 +44,6 @@ public class DemoApplication implements CommandLineRunner {
 //    public Queue createQueue() {
 //        return new Queue(Constant.queueName);
 //    }
-
     @Override
     public void run(String... args) throws Exception {
         System.out.println("application-run");
