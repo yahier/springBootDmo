@@ -69,11 +69,11 @@
         </dependency>
 
         <!--mybatis-->
-        <dependency>
-            <groupId>org.mybatis.spring.boot</groupId>
-            <artifactId>mybatis-spring-boot-starter</artifactId>
-            <version>1.3.1</version>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>org.mybatis.spring.boot</groupId>-->
+<!--            <artifactId>mybatis-spring-boot-starter</artifactId>-->
+<!--            <version>1.3.1</version>-->
+<!--        </dependency>-->
 
         <!-- 经过测试，将这个放开，注释掉下面的mybatis-typehandlers-jsr310，会 导致启动失败-->
 <!--        <dependency>-->
@@ -82,10 +82,17 @@
 <!--            <version>3.2.7</version>-->
 <!--        </dependency>-->
 
+        <!-- 添加这个之后，注释了上面的mybatis-spring-boot-starter-->
         <dependency>
             <groupId>org.mybatis</groupId>
             <artifactId>mybatis-typehandlers-jsr310</artifactId>
             <version>1.0.1</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.baomidou</groupId>
+            <artifactId>mybatis-plus-boot-starter</artifactId>
+            <version>3.1.2</version>
         </dependency>
 
        <!-- 代码简化-->
