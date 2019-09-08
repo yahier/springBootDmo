@@ -29,6 +29,15 @@ public class CatService extends ServiceImpl<CatMapper, Cat> {
     }
 
     /**
+     * 按条件查询
+     */
+    public List<Cat> showList() {
+        QueryWrapper wrapper = new QueryWrapper();
+        return list(wrapper);
+    }
+
+
+    /**
      * 按条件更新
      */
     public void update_() {

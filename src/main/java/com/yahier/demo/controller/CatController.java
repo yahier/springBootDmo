@@ -42,4 +42,13 @@ public class CatController {
         return new BaseResp(listCat);
     }
 
+    /**
+     * 列表添加
+     */
+    @RequestMapping(value = "/showList", produces = {"application/json;charset=UTF-8"}, method = RequestMethod.POST)
+    public BaseResp showList(@RequestBody List<Cat> listCat) {
+        List<Cat> list = catService.showList();
+        return new BaseResp(list);
+    }
+
 }
